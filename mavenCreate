@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+	then
+		mvn archetype:generate -DgroupId=test -DartifactId=test -Dpackage=test \
+	  -Dname="parent top level" \
+	  -Dversion="1.0" \
+	  -DarchetypeGroupId=org.apache.maven.archetypes \
+		-DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 \
+ 		-DinteractiveMode=false
+
+fi
+
+if [ $# -eq 1 ]
+	then
+echo "se creara un proyecto con el paquete ar.com.${1}"
+	mvn archetype:generate -DgroupId="${1}"  -DartifactId="${1}"  -Dpackage=ar.com."${1}" -Dname="parent top level" -Dversion="1.0"  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart  -DarchetypeVersion=1.4  -DinteractiveMode=false
+
+fi
+
+if [ $# -eq 2 ]
+	then
+
+echo "se creara un proyecto con el paquete ${1}.${2}"
+	mvn archetype:generate -DgroupId="${1}" -DartifactId="${2}"  -Dpackage=${1} -Dname="parent top level" -Dversion="1.0"  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart  -DarchetypeVersion=1.4  -DinteractiveMode=false
+
+fi	
